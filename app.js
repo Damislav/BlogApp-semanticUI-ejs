@@ -107,6 +107,17 @@ app.put("/blogs/:id", (req, res) => {
   );
 });
 
+app.delete("/blogs/:id", (req, res) => {
+  //DESTROY BLOG
+  Blog.findByIdAndRemove(req.params.id, (err) => {
+    if (err) {
+      res.redirect("/blogs");
+    } else {
+      res.redirect("/blogs");
+    }
+  });
+  // redirect somwhere
+});
 app.listen(3000, () => {
   console.log("server has started on port 3000");
 });
